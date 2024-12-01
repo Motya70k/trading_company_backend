@@ -10,7 +10,10 @@ import io.ktor.server.engine.*
 import io.ktor.server.netty.*
 
 fun main() {
-    embeddedServer(Netty, port = 3007, host = "192.168.1.47", module = Application::module)
+    val environment = commandLineEnvironment(arrayOf())
+    val host = environment.config.property("ktor.deployment.host").getString()
+    val port = environment.config.property("ktor.deployment.port").getString().toInt()
+    embeddedServer(Netty, port = port, host = host, module = Application::module)
         .start(wait = true)
 }
 
