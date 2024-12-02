@@ -1,4 +1,4 @@
-# Данный проект является серверной частью для [TradingCompanyApp](https://github.com/Motya70k/TradingCompanyApp)
+# Данный проект является серверной частью для [TradingCompanyApp](https://github.com/mvshvetsov/TradingCompanyApp)
 ___
 ## Основные функции
 1. Регистрация работника
@@ -29,7 +29,7 @@ ___
    + Склонировать проект
    ```
    git init
-   git clone https://github.com/Motya70k/trading_company_backend
+   git clone https://github.com/mvshvetsov/trading_company_backend
    ```
 2. Открыть проект в редакторе кода
 3. В папке resources создать файл application.yaml
