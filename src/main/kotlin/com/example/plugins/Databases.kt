@@ -4,6 +4,7 @@ import com.example.data.model.table.*
 import com.zaxxer.hikari.HikariConfig
 import com.zaxxer.hikari.HikariDataSource
 import io.ktor.server.application.*
+import io.ktor.server.engine.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.jetbrains.exposed.sql.Database
@@ -12,9 +13,10 @@ import org.jetbrains.exposed.sql.transactions.transaction
 
 object DatabaseFactory{
 
-    private val dbUrl = "jdbc:mysql://localhost:3307/trading_company_db"
-    private val dbUser = "root"
-    private val dbPassword = ""
+    private val environment = commandLineEnvironment(arrayOf())
+    private val dbUrl = environment.config.property("database.dbUrl").getString()
+    private val dbUser = environment.config.property("database.dbUser").getString()
+    private val dbPassword = environment.config.property("database.dbPassword").getString()
 
     fun Application.initializeDataBase() {
         Database.connect(getHikariDataSource())
