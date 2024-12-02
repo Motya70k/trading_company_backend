@@ -20,4 +20,34 @@ ___
 + ![Static Badge](https://img.shields.io/badge/kotlinx%20serialization-7F52FF?style=for-the-badge&logoColor=white)
 + ![Static Badge](https://img.shields.io/badge/-MySql-4479A1?style=for-the-badge&logo=mysql&color=white&logoSize=auto)
 ___
-## API 
+## Установка
+1. Склонировать репозиторий
+   + С помощью командной строки перейти в папку, где будет храниться проект
+   ```
+   cd C:\папка
+   ```
+   + Склонировать проект
+   ```
+   git init
+   git clone https://github.com/Motya70k/trading_company_backend
+   ```
+2. Открыть проект в редакторе кода
+3. В папке resources создать файл application.yaml
+   + Настройка файла
+     ```yaml
+     ktor:
+       application:
+           modules:
+               - com.example.ApplicationKt.module
+       deployment:
+           host: "Ваш адрес сервера"
+           port: Порт
+     database:
+        dbUrl: "Ссылка на вашу базу данных"
+        dbUser: "Имя пользователя базы данных"
+        dbPassword: "Пароль для пользователя базы данных"
+     jwt:
+        domain: "URL вашего сервера авторизации или стороннего провайдера токенов. Пример: https://auth.example.com/"
+        audience: "Аудитория токена. Пример: your-app-audience"
+        realm: "Область аутентификации. Пример: example-realm"
+     ``` 
